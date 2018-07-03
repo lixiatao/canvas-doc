@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas - 圆弧</title>
+	<link rel="stylesheet" href="css/comm.css">
+</head>
+<body>
+<pre>
+	<code>
+		
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		ctx.beginPath();
+		ctx.arc(200,100,100,0,Math.PI);
+		ctx.stroke();
+
+		// 圆
+		ctx.beginPath();
+		ctx.moveTo(400, 280);
+		ctx.arc(400, 280,100, 0, 0.2*Math.PI);
+		ctx.fillStyle = 'green'
+		ctx.fill();
+		ctx.beginPath();
+		ctx.moveTo(400, 280);
+		ctx.arc(400, 280,100, 0.2*Math.PI, 0.5*Math.PI);
+		ctx.fillStyle = 'rgba(255,0,255,0.5)'
+		ctx.fill();
+		ctx.beginPath();
+		ctx.moveTo(400, 280);
+		ctx.arc(400, 280,100, 0.5*Math.PI, 0.8*Math.PI);
+		ctx.fillStyle = 'hsla(255,50%,50%,0.8)'
+		ctx.fill();
+		ctx.beginPath();
+		ctx.moveTo(400, 280);
+		ctx.arc(400, 280,100, 0.8*Math.PI,1.2*Math.PI);
+		ctx.fillStyle = 'yellow'
+		ctx.fill();
+		ctx.beginPath();
+		ctx.moveTo(400, 280);
+		ctx.arc(400, 280,100, 1.2*Math.PI, 2*Math.PI);
+		ctx.fillStyle = 'rgba(255,0,0,0.6)'
+		ctx.fill();
+		
+		ctx.beginPath();
+		ctx.moveTo(500,100);
+		ctx.lineTo(600,100);
+		ctx.lineTo(600,200);
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.moveTo(500,100);
+		ctx.arcTo(600, 100, 600, 200, 100);
+		ctx.strokeStyle = 'red'
+		ctx.stroke();
+
+		
+
+	</code>
+</pre>
+	<canvas id='canvas' width="856px" height="398px">
+		你的浏览器居然不支持Canvas？！赶快换一个吧！！
+	</canvas> 
+	<script>
+		
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		ctx.beginPath();
+		ctx.arc(200,100,100,0,Math.PI);
+		ctx.stroke();
+
+		// 圆
+		ctx.beginPath();
+		ctx.moveTo(400, 280);
+		ctx.arc(400, 280,100, 0, 0.2*Math.PI);
+		ctx.fillStyle = 'green'
+		ctx.fill();
+		ctx.beginPath();
+		ctx.moveTo(400, 280);
+		ctx.arc(400, 280,100, 0.2*Math.PI, 0.5*Math.PI);
+		ctx.fillStyle = 'rgba(255,0,255,0.5)'
+		ctx.fill();
+		ctx.beginPath();
+		ctx.moveTo(400, 280);
+		ctx.arc(400, 280,100, 0.5*Math.PI, 0.8*Math.PI);
+		ctx.fillStyle = 'hsla(255,50%,50%,0.8)'
+		ctx.fill();
+		ctx.beginPath();
+		ctx.moveTo(400, 280);
+		ctx.arc(400, 280,100, 0.8*Math.PI,1.2*Math.PI);
+		ctx.fillStyle = 'yellow'
+		ctx.fill();
+		ctx.beginPath();
+		ctx.moveTo(400, 280);
+		ctx.arc(400, 280,100, 1.2*Math.PI, 2*Math.PI);
+		ctx.fillStyle = 'rgba(255,0,0,0.6)'
+		ctx.fill();
+
+		ctx.beginPath();
+		ctx.moveTo(500,100);
+		ctx.lineTo(600,100);
+		ctx.lineTo(600,200);
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.moveTo(500,100);
+		ctx.arcTo(600, 100, 600, 200, 100);
+		ctx.strokeStyle = 'red'
+		ctx.stroke();
+
+		
+		
+	</script>
+</body>
+</html>

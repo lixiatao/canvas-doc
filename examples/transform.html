@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas - 变换</title>
+	<link rel="stylesheet" href="css/comm.css">
+</head>
+<body>
+<pre>
+	<code>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		ctx.fillStyle = 'red';
+		ctx.fillRect(0,0,100,100);
+		// 平移坐标系
+		ctx.translate(100,100);
+		ctx.fillStyle = 'green';
+		ctx.fillRect(0,0,100,100);
+		// 将坐标系移回（0,0）位置
+		ctx.translate(-100,-100);
+		ctx.fillStyle = 'orange';
+		ctx.fillRect(0,200,100,100);
+		
+
+
+		// 旋转--以默认（0,0）为圆心旋转
+		ctx.rotate(0.1*Math.PI);
+		ctx.fillStyle = 'pink';
+		ctx.fillRect(300,100,100,100);
+		// 旋转回默认状态
+		ctx.rotate(-0.1*Math.PI);
+        
+
+		// 旋转--以矩形圆心为圆心旋转
+		ctx.translate(350,150);
+		ctx.rotate(0.1*Math.PI);
+		ctx.fillStyle = 'rgba(0,0,0,.2)';
+		ctx.fillRect(-50,-50,100,100);
+		ctx.rotate(0.1*Math.PI);
+		ctx.fillRect(-50,-50,100,100);
+		ctx.rotate(0.1*Math.PI);
+		ctx.fillRect(-50,-50,100,100);
+		ctx.rotate(0.1*Math.PI);
+		ctx.fillRect(-50,-50,100,100);
+		ctx.rotate(0.1*Math.PI);
+		ctx.fillRect(-50,-50,100,100);
+		// 旋转结束之后记得恢复平移、旋转之前的状态
+		ctx.rotate(-0.5*Math.PI);
+		ctx.translate(-350,-150);
+		//后面状态不受影响
+		ctx.fillRect(500,100,100,100);
+
+
+		// 缩放
+		//默认的影响
+		ctx.save()
+		ctx.scale(1.5,1.5);
+		ctx.strokeRect(620,50,60,60);
+		ctx.restore();
+		ctx.save()
+		ctx.scale(2,2);
+		ctx.strokeRect(620,50,60,60);
+		ctx.restore();
+		ctx.strokeRect(620,50,60,60);
+	</code>
+</pre>
+	<canvas id='canvas' width="856px" height="398px">
+		你的浏览器居然不支持Canvas？！赶快换一个吧！！
+	</canvas> 
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		ctx.fillStyle = 'red';
+		ctx.fillRect(0,0,100,100);
+		// 平移坐标系
+		ctx.translate(100,100);
+		ctx.fillStyle = 'green';
+		ctx.fillRect(0,0,100,100);
+		// 将坐标系移回（0,0）位置
+		ctx.translate(-100,-100);
+		ctx.fillStyle = 'orange';
+		ctx.fillRect(0,200,100,100);
+		
+
+
+		// 旋转--以默认（0,0）为圆心旋转
+		ctx.rotate(0.1*Math.PI);
+		ctx.fillStyle = 'pink';
+		ctx.fillRect(300,100,100,100);
+		// 旋转回默认状态
+		ctx.rotate(-0.1*Math.PI);
+        
+
+		// 旋转--以矩形圆心为圆心旋转
+		ctx.translate(350,150);
+		ctx.rotate(0.1*Math.PI);
+		ctx.fillStyle = 'rgba(0,0,0,.2)';
+		ctx.fillRect(-50,-50,100,100);
+		ctx.rotate(0.1*Math.PI);
+		ctx.fillRect(-50,-50,100,100);
+		ctx.rotate(0.1*Math.PI);
+		ctx.fillRect(-50,-50,100,100);
+		ctx.rotate(0.1*Math.PI);
+		ctx.fillRect(-50,-50,100,100);
+		ctx.rotate(0.1*Math.PI);
+		ctx.fillRect(-50,-50,100,100);
+		// 旋转结束之后记得恢复平移、旋转之前的状态
+		ctx.rotate(-0.5*Math.PI);
+		ctx.translate(-350,-150);
+		//后面状态不受影响
+		ctx.fillRect(500,100,100,100);
+
+
+		// 缩放
+		//默认的影响
+		ctx.save()
+		ctx.scale(1.5,1.5);
+		ctx.strokeRect(620,50,60,60);
+		ctx.restore();
+		ctx.save()
+		ctx.scale(2,2);
+		ctx.strokeRect(620,50,60,60);
+		ctx.restore();
+		ctx.strokeRect(620,50,60,60);
+	</script>
+</body>
+</html>

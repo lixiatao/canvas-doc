@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FlappyBird</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        canvas{
+            display: block;
+            margin:0 auto;
+            box-sizing:border-box;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="mycanvas"></canvas>
+    <audio src="music/sfx_die.ogg" id="sfx_die"></audio>
+    <audio src="music/sfx_hit.ogg" id="sfx_hit"></audio>
+    <audio src="music/sfx_point.ogg" id="sfx_point"></audio>
+    <audio src="music/sfx_swooshing.ogg" id="sfx_swooshing"></audio>
+    <audio src="music/sfx_wing.ogg" id="sfx_wing"></audio>
+
+    <script src="js/Game.js"></script>
+    <script src="js/Background.js"></script>
+    <script src="js/Land.js"></script>
+    <script src="js/Pipe.js"></script>
+    <script src="js/Bird.js"></script>
+    <script src="js/SceneManager.js"></script>
+    <script>
+        var game = new Game();
+    </script>
+</body>
+</html>

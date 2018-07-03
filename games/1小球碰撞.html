@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas - 小球碰撞</title>
+	<style>
+		canvas{border:1px solid #ddd;}
+	</style>
+</head>
+<body>
+	<canvas width="400" height="300" id="canvas">
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		class Ball{
+			constructor(ctx,x,y,r,dirx,diry){
+				this.ctx = ctx;
+				this.x = x;
+				this.y = y;
+				this.r = r;
+				this.dirx = dirx; //控制x方向
+				this.diry = diry; //控制y方向
+			}
+			render(){
+				ctx.beginPath();
+				this.ctx.fillStyle = 'rgba('+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+','+parseInt(Math.random()*255)+','+Math.random()*1+')';
+				this.ctx.arc(this.x,this.y,this.r,0 , Math.PI * 2);
+				this.ctx.fill();
+			}
+			update(){
+				
+				if(this.x>=(400-this.r) || this.x<=r){
+					this.dirx = -this.dirx
+				}
+				if(this.y>=(300-this.r) || this.y<=r){
+					this.diry = -this.diry
+				}
+				if(this.dirx>0){
+					this.x++
+				}else{
+					this.x--
+				}
+				if(this.diry>0){
+					this.y++
+				}else{
+					this.y--
+				}
+				
+			}
+		}
+		var BallArr = [];
+		for(var i = 0; i<20; i++){
+			var r = parseInt(Math.random()*20)
+			var x = parseInt(r + Math.random()*(400 - 2*r))
+			var y = parseInt(r + Math.random()*(300 - 2*r))
+			var dirx = Math.random()*2>1 ? 1 : -1
+			var diry = Math.random()*2>1 ? 1 : -1
+			BallArr.push(new Ball(ctx,x,y,r,dirx,diry));
+		}
+        setInterval(function(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            BallArr.forEach(function(item){
+                item.update();
+                item.render();
+            });
+        },10);
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>前言</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h2>一、什么是canvas?</h2>
+	<p>HTML5 的 canvas 元素使用 JavaScript 在网页上绘制图像。</p>
+	<p>画布是一个矩形区域，您可以控制其每一像素。</p>
+    <p>canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。</p>
+    <h2>二、准备工作</h2>
+    <h3>1.布置画布</h3>
+    <p>添加<code>&ltcanvas id=“canvas”&gt&lt/canvas&gt</code>标签，可以js添加，也可以直接添加html标签； <br>*别忘记添加宽高</p>
+    <h3>2.获取画布</h3>
+    <p>通过canvas标签的id，js获得canvas对象<pre><code>var canvas = document.getElementById("canvas");</code></pre></p>
+    <h3>3.获得画笔</h3>
+	<p>通过canvas对象的getContext("2d")方法，获得2D环境<pre><code>var context = canvas.getContext("2d");</code></pre></p>
+</body>
+</html>

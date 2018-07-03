@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas - 三次贝塞尔曲线</title>
+	<link rel="stylesheet" href="css/comm.css">
+</head>
+<body>
+<pre>
+	<code>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		// 蛙脸轮廓
+		ctx.beginPath();
+		ctx.moveTo(170, 325);
+		ctx.bezierCurveTo(38, 317, 81, 224, 141, 229);
+		ctx.bezierCurveTo(141, 229, 149, 138, 178, 229);
+		ctx.bezierCurveTo(191, 170, 210, 180, 221, 229);
+		ctx.bezierCurveTo(270, 240, 305, 325, 170, 325);
+		ctx.fillStyle = '#61d40c';
+		ctx.fill();
+		ctx.stroke();
+
+		// 蛙左眼睛
+        ctx.beginPath();
+		ctx.moveTo(155, 231);
+        ctx.bezierCurveTo(152, 216, 169, 217, 165, 231);//112, 236, 129, 237, 129, 252
+        ctx.fillStyle = "black";
+        ctx.fill();
+        // 蛙左眼睛
+        ctx.beginPath();
+		ctx.moveTo(195, 231);
+        ctx.bezierCurveTo(192, 216, 209, 217, 205, 231);//112, 236, 129, 237, 129, 252
+        ctx.fillStyle = "black";
+        ctx.fill();
+
+	</code>
+</pre>
+	<canvas id='canvas' width="856px" height="398px">
+		你的浏览器居然不支持Canvas？！赶快换一个吧！！
+	</canvas> 
+	<script>
+		
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		// 蛙脸轮廓
+		ctx.beginPath();
+		ctx.moveTo(170, 325);
+		ctx.bezierCurveTo(38, 317, 81, 224, 141, 229);
+		ctx.bezierCurveTo(141, 229, 149, 138, 178, 229);
+		ctx.bezierCurveTo(191, 170, 210, 180, 221, 229);
+		ctx.bezierCurveTo(270, 240, 305, 325, 170, 325);
+		ctx.fillStyle = '#61d40c';
+		ctx.fill();
+		ctx.stroke();
+
+		// 蛙左眼睛
+        ctx.beginPath();
+		ctx.moveTo(155, 231);
+        ctx.bezierCurveTo(152, 216, 169, 217, 165, 231);//112, 236, 129, 237, 129, 252
+        ctx.fillStyle = "black";
+        ctx.fill();
+        // 蛙左眼睛
+        ctx.beginPath();
+		ctx.moveTo(195, 231);
+        ctx.bezierCurveTo(192, 216, 209, 217, 205, 231);//112, 236, 129, 237, 129, 252
+        ctx.fillStyle = "black";
+        ctx.fill();
+	</script>
+</body>
+</html>

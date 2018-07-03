@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas - 二次贝塞尔曲线</title>
+	<link rel="stylesheet" href="css/comm.css">
+</head>
+<body>
+<pre>
+	<code>
+		//辅助切线 
+		ctx.beginPath();
+		ctx.moveTo(50,300);
+		ctx.lineTo(150,100);
+		ctx.lineTo(250,300);
+		ctx.stroke();
+		//二次贝塞尔曲线
+		ctx.beginPath();
+		ctx.moveTo(50,300);
+		ctx.quadraticCurveTo(150,100,250,300);
+		ctx.strokeStyle = 'red';
+		ctx.stroke();
+
+		function quadraticCurveAni(x,y){
+			ctx.clearRect(350,100,200,200);
+			//辅助切线 
+			ctx.beginPath();
+			ctx.moveTo(350,300);
+			ctx.lineTo(450,100);
+			ctx.lineTo(550,300);
+			ctx.strokeStyle = 'black';
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.moveTo(350,300);
+			// 控制点固定，变化终点位置
+			ctx.quadraticCurveTo(450,100,x,y);
+			ctx.strokeStyle = '#24ff24';
+			ctx.stroke();
+		}
+		var x = 450, y = 100;
+		clearInterval(timer);
+		var timer = setInterval(function(){
+			x += 1;
+			y += 2;
+			if(x > 550){
+				x = 450;
+				y = 100;
+			}
+			quadraticCurveAni(x,y)
+		},20)
+
+		//绘制山 
+		ctx.beginPath();
+		ctx.moveTo(600,300);
+		// 控制点固定，变化终点位置
+		ctx.quadraticCurveTo(620,100,670,250);
+		ctx.quadraticCurveTo(680,0,750,250);
+		ctx.quadraticCurveTo(790,50,800,300);
+		ctx.fillStyle = '#438711';
+		ctx.closePath();
+		ctx.fill();
+
+	</code>
+</pre>
+	<canvas id='canvas' width="856px" height="398px">
+		你的浏览器居然不支持Canvas？！赶快换一个吧！！
+	</canvas> 
+	<script>
+		
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		
+        //辅助切线 
+		ctx.beginPath();
+		ctx.moveTo(50,300);
+		ctx.lineTo(150,100);
+		ctx.lineTo(250,300);
+		ctx.stroke();
+        //二次贝塞尔曲线
+		ctx.beginPath();
+		ctx.moveTo(50,300);
+		ctx.quadraticCurveTo(150,100,250,300);
+		ctx.strokeStyle = 'red';
+		ctx.stroke();
+
+		function quadraticCurveAni(x,y){
+			ctx.clearRect(350,100,200,200);
+			//辅助切线 
+			ctx.beginPath();
+			ctx.moveTo(350,300);
+			ctx.lineTo(450,100);
+			ctx.lineTo(550,300);
+			ctx.strokeStyle = 'black';
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.moveTo(350,300);
+			// 控制点固定，变化终点位置
+			ctx.quadraticCurveTo(450,100,x,y);
+			ctx.strokeStyle = '#24ff24';
+			ctx.stroke();
+		}
+		var x = 450, y = 100;
+		clearInterval(timer);
+		var timer = setInterval(function(){
+			x += 1;
+			y += 2;
+			if(x > 550){
+				x = 450;
+				y = 100;
+			}
+			quadraticCurveAni(x,y)
+		},20)
+
+		//绘制山 
+		ctx.beginPath();
+		ctx.moveTo(600,300);
+		// 控制点固定，变化终点位置
+		ctx.quadraticCurveTo(620,100,670,250);
+		ctx.quadraticCurveTo(680,0,750,250);
+		ctx.quadraticCurveTo(790,50,800,300);
+		ctx.fillStyle = '#438711';
+		ctx.closePath();
+		ctx.fill();
+
+		
+	</script>
+</body>
+</html>

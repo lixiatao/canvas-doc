@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas - 文本</title>
+	<link rel="stylesheet" href="css/comm.css">
+</head>
+<body>
+<pre>
+	<code>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		ctx.font = 'italic small-caps bold 20px/40px arial ' 
+		ctx.fillStyle = '#ff0000'
+		ctx.fillText('Study Canvas',50,100)
+		
+		// 限制文本宽度
+		ctx.beginPath();
+		ctx.fillStyle = '#ff00ff'
+		ctx.fillText('设置了文本宽度，字体会被压缩',50,150,200)
+		
+		// 设置描边文本
+		ctx.beginPath();
+		ctx.strokeStyle = '#ff00ff'
+		ctx.strokeText('设置了描边文本',50,200)
+
+		// 设置背景图填充
+		ctx.beginPath();
+		var img = new Image();
+		img.src = 'images/bg.jpg';
+		img.onload = function(){
+			var bg = ctx.createPattern(img,'repeat');
+			ctx.fillStyle = bg;
+			ctx.fillText('设置了背景图填充文本',50,250)
+		}
+
+		// 设置渐变填充
+		ctx.beginPath();
+		var grad = ctx.createLinearGradient(50,300,150,400);
+		grad.addColorStop(0,'rgba(0,0,0,.5)');
+		grad.addColorStop(0.2,'rgba(255,0,0,.5)');
+		grad.addColorStop(0.4,'rgba(0,255,0,.5)');
+		grad.addColorStop(0.6,'rgba(0,0,255,.5)');
+		grad.addColorStop(0.8,'rgba(255,255,0,.5)');
+		grad.addColorStop(1,'rgba(0,255,255,.5)');
+		ctx.fillStyle = grad;
+		ctx.textAlign = "left";
+        ctx.textBaseline = "middle";
+		ctx.fillText('设置了渐变色填充文本',50,300)
+
+		// 文字度量衡获取文字长度
+		ctx.beginPath();
+		var text = '测试文字长度';
+		var font_w = ctx.measureText(text).width;
+		ctx.fillStyle = 'pink';
+		ctx.fillText(text,350,100)
+		ctx.fillText('width:'+font_w,350,150)
+	</code>
+</pre>
+	<canvas id='canvas' width="856px" height="398px">
+		你的浏览器居然不支持Canvas？！赶快换一个吧！！
+	</canvas> 
+	<script>
+		
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		ctx.font = 'italic small-caps bold 20px/40px arial ' 
+		ctx.fillStyle = '#ff0000'
+		ctx.fillText('Study Canvas',50,100)
+		
+		// 限制文本宽度
+		ctx.beginPath();
+		ctx.fillStyle = '#ff00ff'
+		ctx.fillText('设置了文本宽度，字体会被压缩',50,150,200)
+		
+		// 设置描边文本
+		ctx.beginPath();
+		ctx.strokeStyle = '#ff00ff'
+		ctx.strokeText('设置了描边文本',50,200)
+
+		// 设置背景图填充
+		ctx.beginPath();
+		var img = new Image();
+		img.src = 'images/bg.jpg';
+		img.onload = function(){
+			var bg = ctx.createPattern(img,'repeat');
+			ctx.fillStyle = bg;
+			ctx.fillText('设置了背景图填充文本',50,250)
+		}
+
+		// 设置渐变填充
+		ctx.beginPath();
+		var grad = ctx.createLinearGradient(50,300,150,400);
+		grad.addColorStop(0,'rgba(0,0,0,.5)');
+		grad.addColorStop(0.2,'rgba(255,0,0,.5)');
+		grad.addColorStop(0.4,'rgba(0,255,0,.5)');
+		grad.addColorStop(0.6,'rgba(0,0,255,.5)');
+		grad.addColorStop(0.8,'rgba(255,255,0,.5)');
+		grad.addColorStop(1,'rgba(0,255,255,.5)');
+		ctx.fillStyle = grad;
+		ctx.textAlign = "left";
+        ctx.textBaseline = "middle";
+		ctx.fillText('设置了渐变色填充文本',50,300)
+
+		// 文字度量衡获取文字长度
+		ctx.beginPath();
+		var text = '测试文字长度';
+		var font_w = ctx.measureText(text).width;
+		ctx.fillStyle = 'pink';
+		ctx.fillText(text,350,100)
+		ctx.fillText('width:'+font_w,350,150)
+
+	</script>
+</body>
+</html>

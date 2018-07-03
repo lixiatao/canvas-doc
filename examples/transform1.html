@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas - 矩阵变换</title>
+	<link rel="stylesheet" href="css/comm.css">
+</head>
+<body>
+<pre>
+	<code>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		// a |	水平缩放(1)
+		// b |	水平倾斜(0)
+		// c |	垂直倾斜(0)
+		// d |	垂直缩放(1)
+		// e |	水平位移(0)
+		// f |	垂直位移(0)
+		// 矩阵变换
+		// 代替translate
+		ctx.save();
+		ctx.transform(1,0,0,1,20,20);
+		ctx.fillStyle = 'red';
+		ctx.fillRect(0,0,100,100);
+		ctx.restore();
+		//代替scale
+		ctx.save();
+		ctx.transform(2,0,0,2,0,0);
+		ctx.fillStyle = 'green';
+		ctx.fillRect(50,50,100,100);
+		ctx.restore();
+		// 倾斜
+		ctx.save();
+		ctx.transform(1,0,1,1,0,0);
+		ctx.fillStyle = 'orange';
+		ctx.fillRect(350,100,100,100);
+		ctx.restore();
+	</code>
+</pre>
+	<canvas id='canvas' width="856px" height="398px">
+		你的浏览器居然不支持Canvas？！赶快换一个吧！！
+	</canvas> 
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		// a |	水平缩放(1)
+		// b |	水平倾斜(0)
+		// c |	垂直倾斜(0)
+		// d |	垂直缩放(1)
+		// e |	水平位移(0)
+		// f |	垂直位移(0)
+		// 矩阵变换
+		// 代替translate
+		ctx.save();
+		ctx.transform(1,0,0,1,20,20);
+		ctx.fillStyle = 'red';
+		ctx.fillRect(0,0,100,100);
+		ctx.restore();
+		//代替scale
+		ctx.save();
+		ctx.transform(2,0,0,2,0,0);
+		ctx.fillStyle = 'green';
+		ctx.fillRect(50,50,100,100);
+		ctx.restore();
+		// 倾斜
+		ctx.save();
+		ctx.transform(1,0,1,1,0,0);
+		ctx.fillStyle = 'orange';
+		ctx.fillRect(350,100,100,100);
+		ctx.restore();
+	</script>
+</body>
+</html>

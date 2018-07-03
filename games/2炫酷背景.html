@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <style type="text/css">
+        body{
+            padding:0;
+            margin:0;
+             
+        }
+        canvas{
+            position: fixed;
+            z-index: 2;
+            top:0;
+            left:0;
+            background: -webkit-linear-gradient(top,#105673,#5f99ca);
+        }
+        .wrap{
+            width:1000px;
+            height:600px;
+            margin:50px auto;
+            background-color: white;
+            position: relative;
+            z-index:3;
+            border-radius:10px;
+            box-shadow:1px 1px 1px black;
+            padding:20px;
+            box-sizing:border-box;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <canvas id='canvas'>你的浏览器居然不支持Canvas？！赶快换一个吧！！</canvas>
+    <script type="text/javascript">
+        //得到画布
+        var mycanvas = document.getElementById("canvas");
+        mycanvas.width = document.documentElement.clientWidth;
+        mycanvas.height = document.documentElement.clientHeight;
+        window.onresize = function(){
+            mycanvas.width = document.documentElement.clientWidth;
+            mycanvas.height = document.documentElement.clientHeight;
+        }
+        var ctx = mycanvas.getContext("2d");
+
+        class Ball{
+            constructor(idx){
+                this.x = parseInt(Math.random() * mycanvas.width);
+                this.y = parseInt(Math.random() * mycanvas.height);
+                this.r = 5;
+                //自己的序号
+                this.idx = idx;
+                while(true){
+                    var m = parseInt(Math.random() * 8) - 4;
+                    if(m != 0){
+                        this.dx = m;
+                        break;
+                    }
+                }
+                while(true){
+                    var m = parseInt(Math.random() * 8) - 4;
+                    if(m != 0){
+                        this.dy = m;
+                        break;
+                    }
+                }
+                //放入数组
+                ballArr.push(this);
+            }
+            render(){
+                ctx.beginPath();
+                ctx.arc(this.x,this.y,this.r,0,Math.PI * 2,true);
+                ctx.fillStyle = "white";
+                ctx.globalAlpha = 0.4; 
+                ctx.fill();
+                for(var i = this.idx + 1 ; i < ballArr.length ; i++){
+                    if(Math.abs(this.x - ballArr[i].x) < 140 && Math.abs(this.y - ballArr[i].y) < 140){
+                        ctx.beginPath();
+                        ctx.moveTo(this.x , this.y);
+                        ctx.lineTo(ballArr[i].x , ballArr[i].y);
+                        ctx.strokeStyle = "white";
+                        ctx.globalAlpha = 0.2;
+                        ctx.stroke();
+                    }
+                } 
+            }
+            update(){
+                this.x += this.dx;
+                this.y -= this.dy;
+                if(this.x > mycanvas.width + this.r){
+                    this.x = -this.r;
+                }else if(this.x < -this.r){
+                    this.x = mycanvas.width + this.r
+                }
+
+                if(this.y > mycanvas.height + this.r){
+                    this.y = -this.r;
+                }else if(this.y < -this.r){
+                    this.y = mycanvas.height + this.r
+                }
+            }
+            listen(x,y){
+                var dx = x - mycanvas.width / 2;
+                var dy = y - mycanvas.height / 2;
+                this.x += dx / 200;
+                this.y += dy / 100;
+            }
+        }
+
+        //小球数组
+        var ballArr = [];
+
+        //生成30个小球
+        for (var i = 0; i < 60; i++) {
+            new Ball(i);
+        }
+
+        //定时器
+        setInterval(function(){
+            //清屏
+            ctx.clearRect(0,0,mycanvas.width,mycanvas.height);
+            //渲染所有小球
+            ballArr.forEach(function(item){
+                item.update();
+                item.render();
+            });
+        },20);
+
+        //鼠标的监听
+        mycanvas.onmousemove = function(event){
+            //调用所有收听者（就是所有小球）的listen函数，把最新信息告诉他们
+            ballArr.forEach(function(item){
+                item.listen(event.offsetX , event.offsetY);
+            });
+        }
+    </script>
+</body>
+</html>

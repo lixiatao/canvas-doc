@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas - 渐变填充</title>
+	<link rel="stylesheet" href="css/comm.css">
+</head>
+<body>
+<pre>
+	<code>
+		// 图一线性渐变--从左至右
+		// 创建渐变
+		var grad = ctx.createLinearGradient(50,70,200,70);
+		//为渐变添加颜色断点
+		grad.addColorStop(0,'rgba(0,0,0,.5)');
+		grad.addColorStop(0.5,'rgba(0,0,0,0)');
+		grad.addColorStop(1,'rgba(0,0,0,.5)');
+		ctx.beginPath();
+		ctx.fillStyle = grad;
+		ctx.fillRect(50,70,150,250);
+
+		// 图二线性渐变--从上至下
+		ctx.beginPath();
+		// 创建渐变
+		var grad1 = ctx.createLinearGradient(325,70,325,320);
+		//为渐变添加颜色断点
+		grad1.addColorStop(0,'rgba(0,0,0,.5)');
+		grad1.addColorStop(0.2,'rgba(255,0,0,.5)');
+		grad1.addColorStop(0.4,'rgba(0,255,0,.5)');
+		grad1.addColorStop(0.6,'rgba(0,0,255,.5)');
+		grad1.addColorStop(0.8,'rgba(255,255,0,.5)');
+		grad1.addColorStop(1,'rgba(0,255,255,.5)');
+		ctx.fillStyle = grad1;
+		ctx.fillRect(250,70,150,250);
+		
+		// 图三线性渐变--从左上至右下
+		ctx.beginPath();
+		// 创建渐变
+		var grad2 = ctx.createLinearGradient(450,70,600,320);
+		//为渐变添加颜色断点
+		grad2.addColorStop(0,'rgba(0,0,0,.5)');
+		grad2.addColorStop(0.2,'rgba(255,0,0,.5)');
+		grad2.addColorStop(0.4,'rgba(0,255,0,.5)');
+		grad2.addColorStop(0.6,'rgba(0,0,255,.5)');
+		grad2.addColorStop(0.8,'rgba(255,255,0,.5)');
+		grad2.addColorStop(1,'rgba(0,255,255,.5)');
+		ctx.fillStyle = grad2;
+		ctx.fillRect(450,70,150,250);
+
+
+		// 图四径向渐变
+		ctx.beginPath();
+		ctx.moveTo(720,200);
+		var grad3 = ctx.createRadialGradient(720,200,0,720,200,80);
+		grad3.addColorStop(0,'rgba(0,0,0,.5)');
+		grad3.addColorStop(0.2,'rgba(255,0,0,.5)');
+		grad3.addColorStop(0.4,'rgba(0,255,0,.5)');
+		grad3.addColorStop(0.6,'rgba(0,0,255,.5)');
+		grad3.addColorStop(0.8,'rgba(255,255,0,.5)');
+		grad3.addColorStop(1,'rgba(0,255,255,.5)');
+		ctx.fillStyle = grad3;
+		ctx.arc(720,200,80,0.2*Math.PI,1.8*Math.PI);
+		ctx.fill();
+
+	</code>
+</pre>
+	<canvas id='canvas' width="856px" height="398px">
+		你的浏览器居然不支持Canvas？！赶快换一个吧！！
+	</canvas> 
+	<script>
+		
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		
+		// 图一线性渐变--从左至右
+		// 创建渐变
+		var grad = ctx.createLinearGradient(50,70,200,70);
+		//为渐变添加颜色断点
+		grad.addColorStop(0,'rgba(0,0,0,.5)');
+		grad.addColorStop(0.5,'rgba(0,0,0,0)');
+		grad.addColorStop(1,'rgba(0,0,0,.5)');
+		ctx.beginPath();
+		ctx.fillStyle = grad;
+		ctx.fillRect(50,70,150,250);
+
+		// 图二线性渐变--从上至下
+		ctx.beginPath();
+		// 创建渐变
+		var grad1 = ctx.createLinearGradient(325,70,325,320);
+		//为渐变添加颜色断点
+		grad1.addColorStop(0,'rgba(0,0,0,.5)');
+		grad1.addColorStop(0.2,'rgba(255,0,0,.5)');
+		grad1.addColorStop(0.4,'rgba(0,255,0,.5)');
+		grad1.addColorStop(0.6,'rgba(0,0,255,.5)');
+		grad1.addColorStop(0.8,'rgba(255,255,0,.5)');
+		grad1.addColorStop(1,'rgba(0,255,255,.5)');
+		ctx.fillStyle = grad1;
+		ctx.fillRect(250,70,150,250);
+		
+		// 图三线性渐变--从左上至右下
+		ctx.beginPath();
+		// 创建渐变
+		var grad2 = ctx.createLinearGradient(450,70,600,320);
+		//为渐变添加颜色断点
+		grad2.addColorStop(0,'rgba(0,0,0,.5)');
+		grad2.addColorStop(0.2,'rgba(255,0,0,.5)');
+		grad2.addColorStop(0.4,'rgba(0,255,0,.5)');
+		grad2.addColorStop(0.6,'rgba(0,0,255,.5)');
+		grad2.addColorStop(0.8,'rgba(255,255,0,.5)');
+		grad2.addColorStop(1,'rgba(0,255,255,.5)');
+		ctx.fillStyle = grad2;
+		ctx.fillRect(450,70,150,250);
+
+
+		// 图四径向渐变
+		ctx.beginPath();
+		ctx.moveTo(720,200);
+		var grad3 = ctx.createRadialGradient(720,200,0,720,200,80);
+		grad3.addColorStop(0,'rgba(0,0,0,.5)');
+		grad3.addColorStop(0.2,'rgba(255,0,0,.5)');
+		grad3.addColorStop(0.4,'rgba(0,255,0,.5)');
+		grad3.addColorStop(0.6,'rgba(0,0,255,.5)');
+		grad3.addColorStop(0.8,'rgba(255,255,0,.5)');
+		grad3.addColorStop(1,'rgba(0,255,255,.5)');
+		ctx.fillStyle = grad3;
+		ctx.arc(720,200,80,0.2*Math.PI,1.8*Math.PI);
+		ctx.fill();
+
+	</script>
+</body>
+</html>

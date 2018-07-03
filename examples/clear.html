@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas - 图片填充</title>
+	<link rel="stylesheet" href="css/comm.css">
+</head>
+<body>
+<pre>
+	<code>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		
+		function Draw(){
+			ctx.beginPath();
+			var img = new Image();
+			img.src = 'images/bg.jpg';
+			img.onload = function(){
+				var bg = ctx.createPattern(img,'repeat');
+				ctx.fillStyle = bg;
+				ctx.fillRect(0,0,856,398);
+			}
+		}
+		Draw();
+		var x = 0,y = 1,dir = 1;
+		setInterval(function(){
+			x += 2;
+			if(x == 858){
+				x = 0;
+				y += 1
+				dir = -dir;
+				if(y == 11){
+					x = 0;
+					y = 1;
+					dir = 1;
+					Draw();
+				}
+			}
+			var _x = dir > 0 ? x : 856 - x
+			var dx = dir > 0 ? 0 : 856 - x
+			ctx.clearRect(dx,0,_x,39.8*y)
+		},10)
+	</code>
+</pre>
+	<canvas id='canvas' width="856px" height="398px">
+		你的浏览器居然不支持Canvas？！赶快换一个吧！！
+	</canvas> 
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		
+		function Draw(){
+			ctx.beginPath();
+			var img = new Image();
+			img.src = 'images/bg.jpg';
+			img.onload = function(){
+				var bg = ctx.createPattern(img,'repeat');
+				ctx.fillStyle = bg;
+				ctx.fillRect(0,0,856,398);
+			}
+		}
+		Draw();
+		var x = 0,y = 1,dir = 1;
+		setInterval(function(){
+			x += 2;
+			if(x == 858){
+				x = 0;
+				y += 1
+				dir = -dir;
+				if(y == 11){
+					x = 0;
+					y = 1;
+					dir = 1;
+					Draw();
+				}
+			}
+			var _x = dir > 0 ? x : 856 - x
+			var dx = dir > 0 ? 0 : 856 - x
+			ctx.clearRect(dx,0,_x,39.8*y)
+		},10)
+	</script>
+</body>
+</html>

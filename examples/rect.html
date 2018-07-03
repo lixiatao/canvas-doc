@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>canvas - 矩形</title>
+	<link rel="stylesheet" href="css/comm.css">
+</head>
+<body>
+<pre>
+	<code>
+		由于绘制矩形是常用的方法，所以在Canvas API中已经帮我们封装好了一个绘制矩形的方法——rect()。这个方法接收4个参数x, y, width, height，实际调用时也就是ctx.rect(x,y,width,height);
+		
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		ctx.beginPath();
+		ctx.rect(50,50,100,100);
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.rect(50,200,100,100);
+		ctx.fill();
+		for(var i = 0; i&lt;30; i++){
+			ctx.beginPath();
+			ctx.strokeStyle = 'green';
+			ctx.rect(350-i*5,200-i*5,20+i*10,20+i*10);
+			ctx.stroke();
+		}
+
+	</code>
+</pre>
+	<canvas id='canvas' width="856px" height="398px">
+		你的浏览器居然不支持Canvas？！赶快换一个吧！！
+	</canvas> 
+	<script>
+		
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		ctx.beginPath();
+		ctx.rect(50,50,100,100);
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.rect(50,200,100,100);
+		ctx.fill();
+		for(var i = 0; i<30; i++){
+			ctx.beginPath();
+			ctx.strokeStyle = 'green';
+			ctx.rect(350-i*5,200-i*5,20+i*10,20+i*10);
+			ctx.stroke();
+		}
+
+		ctx.beginPath();
+		ctx.fillStyle = 'red';
+		ctx.fillRect(600,50,100,100);
+		ctx.beginPath();
+		ctx.strokeStyle = 'red';
+		ctx.strokeRect(600,200,100,100);
+	</script>
+</body>
+</html>
